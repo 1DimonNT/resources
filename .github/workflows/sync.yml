@@ -1,0 +1,22 @@
+name: Sync Templates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "templates/**"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync templates
+        run: |
+          echo "Templates updated at $(date)" >> README.md
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Auto-update templates" || exit 0
+          git push
