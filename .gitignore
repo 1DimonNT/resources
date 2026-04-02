@@ -161,7 +161,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
+Промт.txt
+setup_assets.py
+setup.py
 # pytype static type analyzer
 .pytype/
 
